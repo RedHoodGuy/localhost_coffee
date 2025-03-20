@@ -1,0 +1,5 @@
+.centered-image {
+    margin: auto;
+    object-fit: cover;
+    height: auto;
+}

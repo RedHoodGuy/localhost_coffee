@@ -1,0 +1,15 @@
+.collection {
+    object-fit: cover;
+}
+
+.collection-container {
+    display: flex;
+    background-color: white;
+    width: 70%;
+    min-height: 20vh;
+    min-width: 50%;
+    border-radius: 5px;
+    align-items: center;
+    justify-content: center;
+    padding: auto;
+}
