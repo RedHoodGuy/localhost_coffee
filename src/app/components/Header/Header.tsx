@@ -1,12 +1,16 @@
 
-import Image from 'next/image';
+'use client'
+import Link from 'next/link';
+
 import SvgLhcVertLogoWht from '../../../../public/logos/White Logos/LHC vert logo (wht).svg';
 
 const Header = () => {
     return (
         <>
         <header>
-            <Image src={SvgLhcVertLogoWht} alt='' height={300} width={200} priority/>
+            <Link href='/'>
+                <SvgLhcVertLogoWht width={350} height="auto" href='/'/>
+            </Link>
         </header>
         </>
     )

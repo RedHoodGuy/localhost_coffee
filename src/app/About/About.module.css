@@ -1,0 +1,26 @@
+
+.header3-large {
+    font-size: 54px;
+    font-weight: 400;
+    margin-right: 65%;
+    margin-bottom: 10%;
+}
+
+.header2-large {
+    font-size: 40px;
+    font-weight: 300;
+    margin: auto;
+    flex: 0 0 100%;
+    margin-bottom: 10%;
+}
+
+.about-us-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 35%;
+    border: 1px solid white;
+    padding: 15px;
+}
