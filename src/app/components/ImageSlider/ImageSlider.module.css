@@ -69,13 +69,7 @@
 }
 
 /* Dots Positioned Below */
-.dots {
-    text-align: center;
-    margin-top: 15px;
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-}
+
 
 .dot {
     height: 12px;
@@ -89,3 +83,52 @@
 .dot.active {
     background-color: pink;
 }
+
+.dots {
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* <-- Add this to vertically align the elements */
+    gap: 8px;
+}
+
+.pause-btn {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    position: relative; /* Ensures alignment */
+    top: 0; /* Keep it aligned at the center */
+}
+
+
+/* Animations.module.css */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+  
+  /* Element becomes visible */
+  .fade-in-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Optional: fade-in from left or right */
+  .fade-in-left {
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+  
+  .fade-in-left-visible {
+    opacity: 1;
+    transform: translateX(0);
+  }

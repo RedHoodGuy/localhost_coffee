@@ -47,7 +47,9 @@ const ImageSlider: React.FC = () => {
   };
 
   return (
-    <div className={classes['slider-wrapper']}>
+    <div
+      className={`${classes['slider-wrapper']}`}
+    >
       <div className={classes['slider-container']}>
       <div
           className={classes['slide-track']}
@@ -91,9 +93,7 @@ const ImageSlider: React.FC = () => {
         ))}
 
          {/* Pause/Play Button */}
-         <button className="pause-btn" onClick={togglePause}>
-          {paused ? '▶️' : '⏸️'}
-        </button>
+         <span className={`${classes['pause-btn']} ${paused ? 'fa fa-play' : 'fa fa-pause'}`} onClick={togglePause} />
       </div>
     </div>
   );
