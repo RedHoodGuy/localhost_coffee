@@ -12,12 +12,11 @@
     "@prisma/client": "^6.5.0",
     "@svgr/cli": "^8.1.0",
     "@svgr/webpack": "^8.1.0",
+    "bootstrap": "4.6.1",
     "date-fns": "^4.1.0",
     "font-awesome": "^4.7.0",
-    "formidable": "^3.5.2",
     "mime": "^4.0.6",
     "next": "15.2.3",
-    "next-connect": "^1.0.0",
     "prisma": "^6.5.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"

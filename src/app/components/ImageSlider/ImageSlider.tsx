@@ -51,13 +51,13 @@ const ImageSlider: React.FC = () => {
       className={`${classes['slider-wrapper']}`}
     >
       <div className={classes['slider-container']}>
-      <div
+        <div
           className={classes['slide-track']}
           style={{
             transform: `translateX(-${currentIndex * 100}%)`,
           }}
         >
-        {images.map((src, index) => (
+          {images.map((src, index) => (
             <div className={classes.slide} key={index}>
               <Image
                 src={src}
@@ -92,8 +92,8 @@ const ImageSlider: React.FC = () => {
           />
         ))}
 
-         {/* Pause/Play Button */}
-         <span className={`${classes['pause-btn']} ${paused ? 'fa fa-play' : 'fa fa-pause'}`} onClick={togglePause} />
+        {/* Pause/Play Button */}
+        <span className={`${classes['pause-btn']} ${paused ? 'fa fa-play' : 'fa fa-pause'}`} onClick={togglePause} />
       </div>
     </div>
   );

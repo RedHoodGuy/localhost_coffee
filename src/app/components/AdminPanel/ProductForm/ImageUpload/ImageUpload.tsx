@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useRef } from "react";
-import styles from "./imageUpload.module.css";  // Adjust path as needed
+import styles from "./ImageUpload.module.css";  // Adjust path as needed
 
 const ImageUpload = ({ onImageUpload }: { onImageUpload: (url: string) => void }) => {
   const [fileUrl, setFileUrl] = useState<string | null>(null);
@@ -96,7 +96,7 @@ const ImageUpload = ({ onImageUpload }: { onImageUpload: (url: string) => void }
           disabled={uploading}  // Disable file input while uploading
           hidden // Hide the default file input
         />
-        <p>{dragging ? "Release to upload" : "Drag & Drop your image here, or click to select"}</p>
+        <p className={styles['drag-drop-area-p']}>{dragging ? "Release to upload" : "Drag & Drop your image here, or click to select"}</p>
       </div>
 
       {fileUrl && !uploading && !dragging && (

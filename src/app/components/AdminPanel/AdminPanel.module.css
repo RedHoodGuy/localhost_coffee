@@ -1,0 +1,33 @@
+/* Add these styles to a global CSS or your component CSS module */
+.button {
+    padding: 10px 20px;
+    margin-right: 10px;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.button:hover {
+    background-color: pink;
+    color: black;
+}
+
+
+/* Style for the tab container */
+.tab-container {
+    margin: auto;
+    display: flex;
+    width: 95%;
+    justify-content: center;
+    /* Center the buttons horizontally */
+    margin-bottom: 20px;
+    /* Add some space below the tabs */
+}
+
+.admin-container {
+    width: 95%;
+    min-height: 100%;
+    margin: auto;
+    height: fit-content;
+    justify-content: center;
+}

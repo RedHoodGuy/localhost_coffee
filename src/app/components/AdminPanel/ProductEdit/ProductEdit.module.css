@@ -1,0 +1,149 @@
+.container {
+  margin: auto;
+  border: 1px white solid;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  transition: height 0.3s ease;
+  /* Smooth transition for the container height */
+  width: 80%;
+  /* Ensure full width of container */
+  padding: 40px;
+  min-height: 100%;
+  /* Ensure container takes full height */
+  height: fit-content;
+  margin-bottom: 8%;
+  overflow-x: hidden;
+}
+
+.productList {
+  width: 35%;
+  /* Fixed width for the product list */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+  /* Smooth transition for the form */
+  height: 100%;
+  /* Ensure product list takes full height */
+  max-height: none;
+}
+
+.productListUl {
+  list-style-type: none;
+  padding: 0;
+}
+
+.productListItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 25px;
+  padding-top: 25px;
+  border-bottom: 1px solid #ddd;
+}
+
+.productActions {
+  display: flex;
+  gap: 10px;
+}
+
+.editButton,
+.deleteButton {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.editButton {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.deleteButton {
+  background-color: #f44336;
+  color: white;
+}
+
+.editButton:hover {
+  background-color: #45a049;
+}
+
+.deleteButton:hover {
+  background-color: #e53935;
+}
+
+/* Ensure edit form expands to fit content */
+.editFormContainer {
+  position: relative;
+  top: 5%;
+  right: -100%;
+  /* Initially off-screen */
+  width: 35%;
+  /* Fixed width for the form */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  transition: right 0.3s ease, width 0.3s ease;
+  /* Smooth transition for sliding in */
+  z-index: 1;
+  /* Ensure it's above the product list */
+  height: auto;
+  /* Allow the form to expand based on content */
+  max-height: none;
+  /* Let the form take its full height */
+  opacity: 0;
+}
+
+.editFormContainer.active {
+  right: 0;
+  opacity: 1;
+}
+
+.editForm h3 {
+  margin-top: 0;
+}
+
+.editForm {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  /* Let the form grow with its content */
+}
+
+.formGroup {
+  margin-bottom: 15px;
+}
+
+.formGroup label {
+  font-weight: bold;
+}
+
+.formGroup input {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.formActions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.updateButton {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.updateButton:hover {
+  background-color: #45a049;
+}

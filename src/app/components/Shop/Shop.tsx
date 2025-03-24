@@ -12,6 +12,7 @@ interface Product {
   description: string;
   quantity: number;
   price: number;
+  imageUrl: string;
 }
 
 // Define props for Shop component
@@ -76,29 +77,29 @@ const Shop: React.FC<ShopProps> = ({ products }) => {
           onChange={(e) => setSearchQuery(e.target.value)}
           className={classes['filter-input']}
         />
-      {/* Min Price Input */}
-    <div className={classes['input-wrapper']}>
-      <input
-        type="number"
-        placeholder="Min Price"
-        value={minPrice}
-        onChange={(e) => setMinPrice(Number(e.target.value))}
-        className={classes['filter-input']}
-      />
-      <label htmlFor="min-price" className={classes['input-label']}>Min Price</label>
-    </div>
+        {/* Min Price Input */}
+        <div className={classes['input-wrapper']}>
+          <input
+            type="number"
+            placeholder="Min Price"
+            value={minPrice}
+            onChange={(e) => setMinPrice(Number(e.target.value))}
+            className={classes['filter-input']}
+          />
+          <label htmlFor="min-price" className={classes['input-label']}>Min Price</label>
+        </div>
 
-    {/* Max Price Input */}
-    <div className={classes['input-wrapper']}>
-      <input
-        type="number"
-        placeholder="Max Price"
-        value={maxPrice}
-        onChange={(e) => setMaxPrice(Number(e.target.value))}
-        className={classes['filter-input']}
-      />
-      <label htmlFor="max-price" className={classes['input-label']}>Max Price</label>
-    </div>
+        {/* Max Price Input */}
+        <div className={classes['input-wrapper']}>
+          <input
+            type="number"
+            placeholder="Max Price"
+            value={maxPrice}
+            onChange={(e) => setMaxPrice(Number(e.target.value))}
+            className={classes['filter-input']}
+          />
+          <label htmlFor="max-price" className={classes['input-label']}>Max Price</label>
+        </div>
         <select
           value={sortOption}
           onChange={(e) => setSortOption(e.target.value)}
@@ -113,30 +114,29 @@ const Shop: React.FC<ShopProps> = ({ products }) => {
         </select>
       </div>
 
-        {/* Grid Layout for Product List */}
-        <div className={classes['product-grid']}>
+      {/* Grid Layout for Product List */}
+      <div className={classes['product-grid']}>
         {filteredProducts.map((product, index) => (
-            <ProductCard
-                ref={(el) => {
-                    if (el) {
-                        if (el && !refs.current.includes(el)) {
-                            refs.current[index] = el; // Assign using index to avoid duplicates
-                        }
-                    }
-                }}
-                key={product.id}
-                product={product}
-                className={`${animationClasses['fade-in']} ${
-                    visibleIndexes.includes(index) ? animationClasses['fade-in-visible'] : ''
-                }`}
-                style={
-                    {
-                        '--delay': `${index * 0.1}s`, // Delay increases by 0.1s per item
-                    } as React.CSSProperties
+          <ProductCard
+            ref={(el) => {
+              if (el) {
+                if (el && !refs.current.includes(el)) {
+                  refs.current[index] = el; // Assign using index to avoid duplicates
                 }
-                />
-            ))}
-        </div>
+              }
+            }}
+            key={product.id}
+            product={product}
+            className={`${animationClasses['fade-in']} ${visibleIndexes.includes(index) ? animationClasses['fade-in-visible'] : ''
+              }`}
+            style={
+              {
+                '--delay': `${index * 0.1}s`, // Delay increases by 0.1s per item
+              } as React.CSSProperties
+            }
+          />
+        ))}
+      </div>
     </div>
   );
 };
