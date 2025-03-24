@@ -1,0 +1,24 @@
+/* imageUpload.module.css */
+
+.drag-drop-area {
+    border: 2px dashed #ccc;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+  }
+  
+  .drag-drop-area.dragging {
+    border-color: #0070f3;
+    background-color: #f0f8ff;
+  }
+  
+  .drag-drop-area p {
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .drag-drop-area img {
+    max-width: 100%;
+    height: auto;
+  }
+  

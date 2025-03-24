@@ -2,17 +2,18 @@ import { NextResponse } from 'next/server';
 import { prisma } from '../../../../lib/prisma';
 
 export async function POST(request: Request) {
-  const { name } = await request.json();
-  const newTodo = await prisma.product.create({
+  const { name, description, categoryId, quantity, price, imageUrl } = await request.json();
+  const newProduct = await prisma.product.create({
     data: {
         name,
-        description: 'undefined',
-        categoryId: 'undefined',
-        quantity: 0,
-        price: 0.00
+        description,
+        categoryId,
+        quantity,
+        price,
+        imageUrl
     },
   });
-  return NextResponse.json(newTodo);
+  return NextResponse.json(newProduct);
 }
 
 export async function GET() {
