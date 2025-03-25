@@ -1,8 +1,10 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { NextResponse } from 'next/server';
 import { prisma } from '../../../../../lib/prisma';
 
-export async function PUT(request: Request) {
-    const { id, name, description, categoryId, quantity, price, imageUrl } = await request.json();
+export async function PUT(request: Request, { params }: { params: { id: string } }) {
+    const { id } = await params;
+    const { name, description, categoryId, quantity, price, imageUrl } = await request.json();
     const updatedProduct = await prisma.product.update({
         where: {
             id
