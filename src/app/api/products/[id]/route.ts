@@ -3,22 +3,28 @@ import { NextResponse } from 'next/server';
 import { prisma } from '../../../../../lib/prisma';
 
 export async function PUT(request: Request, { params }: { params: { id: string } }) {
-    const { id } = await params;
-    const { name, description, categoryId, quantity, price, imageUrl } = await request.json();
-    const updatedProduct = await prisma.product.update({
-        where: {
-            id
-        },
-        data: {
-            name,
-            description,
-            categoryId,
-            quantity,
-            price,
-            imageUrl
-        }
-    });
-    return NextResponse.json({ message: 'Product updated' }, { status: 200 });
+    try {
+        const { id } = await params;
+        const { name, description, categoryId, quantity, price, imageUrl } = await request.json();
+        const updatedProduct = await prisma.product.update({
+            where: {
+                id
+            },
+            data: {
+                name,
+                description,
+                categoryId,
+                quantity,
+                price,
+                imageUrl
+            }
+        });
+        return NextResponse.json({ message: 'Product updated' }, { status: 200 });
+    }
+    catch (error) {
+        console.error('Error updating product: ', error);
+        return NextResponse.json({ message: 'Error updaing prodct' }, { status: 500 })
+    }
 }
 
 export async function DELETE(request: Request, { params }: { params: { id: string } }) {
@@ -30,7 +36,6 @@ export async function DELETE(request: Request, { params }: { params: { id: strin
             where: { id: String(id) },
         });
 
-        // Return a success response
         return NextResponse.json({ message: 'Product deleted' }, { status: 200 });
     } catch (error) {
         console.error('Error deleting product:', error);

@@ -109,7 +109,7 @@ const ImageUpload = ({ onImageUpload, resetTrigger }: { onImageUpload: (fileUrl:
       {fileUrl && !uploading && !dragging && (
         <div>
           <h3>Preview:</h3>
-          { fileUrl ? <Image src={fileUrl} alt="Image preview" style={{ maxWidth: "300px", maxHeight: "300px" }} /> : '' }
+          { fileUrl ? <Image src={fileUrl} alt="Image preview" style={{ maxWidth: "300px", maxHeight: "300px" }} width={300} height={300}/> : '' }
         </div>
       )}
       {uploading && <p>Uploading...</p>}

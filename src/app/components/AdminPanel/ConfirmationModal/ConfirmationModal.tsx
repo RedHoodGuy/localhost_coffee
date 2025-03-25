@@ -40,8 +40,11 @@ const ConfirmationModal: React.FC<ConfirmationModalProps> = ({
     };
 
     const handleOnConfirm = () => {
-        onConfirm && onConfirm();
-        handleOnClose();
+        setIsClosing(true); // Start closing animation
+        setTimeout(() => {
+            if (onConfirm) onConfirm(); // Perform confirm action after animation
+            handleOnClose(); // Close the modal after confirm
+        }, 300); // Wait for the animation duration
     };
     
     return (
