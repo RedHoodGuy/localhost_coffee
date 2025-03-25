@@ -20,21 +20,3 @@ export async function GET() {
   const products = await prisma.product.findMany();
   return NextResponse.json(products);
 }
-
-export async function PUT(request: Request) {
-  const { id, name, description, categoryId, quantity, price, imageUrl } = await request.json();
-  const updatedProduct = await prisma.product.update({
-    where: {
-      id
-    },
-    data: {
-      name,
-      description,
-      categoryId,
-      quantity,
-      price,
-      imageUrl
-    }
-  });
-  return NextResponse.json({ message: 'Product updated' }, { status: 200 });
-}
