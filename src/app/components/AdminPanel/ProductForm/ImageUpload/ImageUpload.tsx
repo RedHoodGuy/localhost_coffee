@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import styles from "./ImageUpload.module.css";  // Adjust path as needed
+import Image from "next/image";
 
 const ImageUpload = ({ onImageUpload, resetTrigger }: { onImageUpload: (fileUrl: string) => void, resetTrigger: boolean }) => {
   const [fileUrl, setFileUrl] = useState<string | null>(null);
@@ -108,7 +109,7 @@ const ImageUpload = ({ onImageUpload, resetTrigger }: { onImageUpload: (fileUrl:
       {fileUrl && !uploading && !dragging && (
         <div>
           <h3>Preview:</h3>
-          { fileUrl ? <img src={fileUrl} alt="Image preview" style={{ maxWidth: "300px", maxHeight: "300px" }} /> : '' }
+          { fileUrl ? <Image src={fileUrl} alt="Image preview" style={{ maxWidth: "300px", maxHeight: "300px" }} /> : '' }
         </div>
       )}
       {uploading && <p>Uploading...</p>}
