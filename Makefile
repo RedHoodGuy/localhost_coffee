@@ -38,7 +38,7 @@ db-setup:
 	@echo "Database setup complete!"
 
 # Command to apply Prisma migrations and regenerate Prisma client
-migrate-prod:
+migrate:
 	@echo "Applying Prisma migrations and regenerating Prisma client..."
 	$(MIGRATE_PROD_CMD)          # Apply migrations based on the environment
 	npx prisma generate      # Regenerate the Prisma client

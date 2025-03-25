@@ -1,9 +1,9 @@
 'use client'
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import styles from "./ImageUpload.module.css";  // Adjust path as needed
 
-const ImageUpload = ({ onImageUpload }: { onImageUpload: (url: string) => void }) => {
+const ImageUpload = ({ onImageUpload, resetTrigger }: { onImageUpload: (fileUrl: string) => void, resetTrigger: boolean }) => {
   const [fileUrl, setFileUrl] = useState<string | null>(null);
   const [uploading, setUploading] = useState(false);
   const [dragging, setDragging] = useState(false); // To handle drag states
@@ -77,6 +77,12 @@ const ImageUpload = ({ onImageUpload }: { onImageUpload: (url: string) => void }
     }
   };
 
+  useEffect(() => {
+    if (resetTrigger) {
+        setFileUrl(null);
+    }
+}, [resetTrigger]);
+
   return (
     <div>
       <div
@@ -102,7 +108,7 @@ const ImageUpload = ({ onImageUpload }: { onImageUpload: (url: string) => void }
       {fileUrl && !uploading && !dragging && (
         <div>
           <h3>Preview:</h3>
-          <img src={fileUrl} alt="Image preview" style={{ maxWidth: "300px", maxHeight: "300px" }} />
+          { fileUrl ? <img src={fileUrl} alt="Image preview" style={{ maxWidth: "300px", maxHeight: "300px" }} /> : '' }
         </div>
       )}
       {uploading && <p>Uploading...</p>}
