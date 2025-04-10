@@ -3,3 +3,53 @@
     object-fit: cover;
     height: auto;
 }
+
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #2b5f88; /* Your header background color */
+    transition: transform 0.1s ease-in-out;
+    z-index: 1000;
+}
+
+/*.header::after {
+    content: '';
+    position: absolute;
+    bottom: 5%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: var(--goldenglow);
+}*/
+
+.header.hidden {
+    transform: translateY(-100%);
+}
+
+.headerPlaceholder {
+    height: 204px; /* Match the height of the header */
+    width: 100%;
+}
+.logo {
+    margin-left: auto;
+    margin-right: auto;
+    fill: var(--seashell);
+    stroke: var(--seashell);
+    transition: all 0.3s ease-in-out;
+}
+
+.logo:hover {
+    fill: var(--goldenglow);
+    text-decoration: none;
+    stroke: var(--goldenglow)
+}
+
+.bar {
+    background-color: var(--goldenglow);
+    height: 10px;
+    width: 100%;
+    margin-bottom: 20px;
+}

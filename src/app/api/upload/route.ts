@@ -7,10 +7,18 @@ import { NextRequest, NextResponse } from "next/server";
 export async function POST(request: NextRequest) {
     const formData = await request.formData();
 
-    const file = formData.get("file") as File | null;  // Cast the file to File
+    const file = formData.get("file") as File | null; // Cast the file to File
     if (!file) {
         return NextResponse.json(
             { error: "File blob is required." },
+            { status: 400 }
+        );
+    }
+
+    // Check if the file is an image
+    if (!file.type.startsWith("image/")) {
+        return NextResponse.json(
+            { error: "Only image files are allowed." },
             { status: 400 }
         );
     }

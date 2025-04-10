@@ -3,6 +3,15 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --seashell: #F3F0EB;
+  --duskblue: #2b5f88;
+  --evergreen: #0C4230;
+  --goldenglow: #F5E1A3;
+  --softamber: #D8C6BC;
+  --heading-font: "Lora Medium", serif;
+  --sub-heading-font: "Playfair Display Medium", serif;
+  --body-font: "Roboto Light", sans-serif;
+  --body-font-serif: "Bodoni MT Regular", serif;
 }
 
 @theme inline {
@@ -14,16 +23,29 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #0C4230;
     --foreground: #ededed;
   }
 }
 
 body {
   background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  color: var(--seashell);
+  font-family: var(--body-font);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+h1 {
+  font-family: var(--heading-font);
+}
+
+h2, h3, h4, h5, h6 {
+  font-family: var(--sub-heading-font);
+}
+
+.content {
+  flex: 1;
+  margin-bottom: 20px;
 }

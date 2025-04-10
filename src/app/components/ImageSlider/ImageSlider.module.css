@@ -10,10 +10,10 @@
 .slider-container {
     position: relative;
     width: 99vw;
-    height: 50vh;
+    height: 99vh;
     min-width: 20%;
     min-height: 20%;
-    margin: 0;
+    margin-top: -20px;
     overflow: hidden;
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -52,7 +52,7 @@
     position: absolute;
     top: 50%;
     background-color: rgba(0, 0, 0, 0.5);
-    color: white;
+    color: var(--seashell);
     border: none;
     cursor: pointer;
     font-size: 24px;
@@ -76,14 +76,14 @@
 .dot {
     height: 12px;
     width: 12px;
-    background-color: #bbb;
+    background-color: var(--seashell);
     border-radius: 50%;
     cursor: pointer;
     transition: background-color 0.3s ease-in-out;
 }
 
 .dot.active {
-    background-color: pink;
+    background-color: var(--softamber);
 }
 
 .dots {
@@ -105,13 +105,17 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    transition: background-color 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
     position: relative;
     /* Ensures alignment */
     top: 0;
     /* Keep it aligned at the center */
+    color: var(--seashell)
 }
 
+.pause-btn:hover {
+    color: var(--softamber);
+}
 
 /* Animations.module.css */
 .fade-in {

@@ -11,7 +11,7 @@
   opacity: 1;
   /* Make sure it's not set to 0 by default */
   transition: all 0.3s ease-in-out;
-  color: darkslategray;
+  color: var(--evergreen);
 }
 
 .product-card:hover {
@@ -26,17 +26,17 @@
 
 .product-desc {
   font-size: 14px;
-  color: #666;
   margin-bottom: 10px;
+  color: var(--evergreen);
 }
 
 .product-price {
   font-size: 16px;
-  color: #333;
+  color: var(--evergreen);
   margin-bottom: 5px;
 }
 
 .product-quantity {
   font-size: 14px;
-  color: #888;
+  color: var(--evergreen);
 }
