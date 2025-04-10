@@ -1,7 +1,6 @@
 import Paragraph from '../components/ParagraphContainer/Paragraph/Paragraph';
 import ParagraphContainer from '../components/ParagraphContainer/ParagraphContainer';
 import classes from './About.module.css';
-import animationClasses from '../hooks/useFadeInArray/Animations.module.css';
 
 const About = () => {
     return (
