@@ -5,12 +5,12 @@ import classes from './Navbar.module.css';
 const Navbar = () => {
     return (
         <>
-        <div className={classes['inline-nav']}>
-            <Link className={classes['navbar-link']} href='/'> Home</Link>
-            <Link className={classes['navbar-link']} href='/Store'> Shop</Link>
-            <Link className={classes['navbar-link']} href='/Menu'> Menu</Link>
-            <Link className={classes['navbar-link']} href='/About'> About Us</Link>
-        </div>
+            <div className={classes['inline-nav']}>
+                <Link className={classes['navbar-link']} href='/'> Home</Link>
+                <Link className={classes['navbar-link']} href='/Store'> Shop</Link>
+                <Link className={classes['navbar-link']} href='/Menu'> Menu</Link>
+                <Link className={classes['navbar-link']} href='/About'> About Us</Link>
+            </div>
         </>
     )
 }

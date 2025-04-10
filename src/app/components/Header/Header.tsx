@@ -7,11 +7,11 @@ import SvgLhcVertLogoWht from '../../../../public/logos/White Logos/LHC vert log
 const Header = () => {
     return (
         <>
-        <header>
-            <Link href='/'>
-                <SvgLhcVertLogoWht width={350} height="auto" href='/'/>
-            </Link>
-        </header>
+            <header>
+                <Link href='/'>
+                    <SvgLhcVertLogoWht width={350} height="auto" href='/' />
+                </Link>
+            </header>
         </>
     )
 }

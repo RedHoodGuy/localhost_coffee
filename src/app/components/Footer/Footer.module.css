@@ -1,3 +1,5 @@
 .sticky {
+    bottom: 0;
     margin-top: auto;
+    z-index: 999;
 }

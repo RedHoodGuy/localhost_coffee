@@ -9,6 +9,7 @@ interface Product {
   name: string;
   description: string;
   price: number;
+  imageUrl: string;
 }
 
 // Define props for ProductCard
@@ -27,7 +28,7 @@ const ProductCard = forwardRef<HTMLDivElement, ProductCardProps>(
         {...props} // Spread remaining props
       >
         <Image
-          src="/images/coffee-stock.jpg"
+          src={product.imageUrl || "/images/coffee-stock.jpg"}
           alt={product.name}
           width={300}
           height={300}

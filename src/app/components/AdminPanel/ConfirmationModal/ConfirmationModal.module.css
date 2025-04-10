@@ -1,0 +1,137 @@
+/* Modal Container - Parent to control visibility & prevent unmount flicker */
+.modalContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1050; /* High z-index to stay on top */
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.3s ease-out, visibility 0.3s ease-out;
+}
+
+/* Hide modal completely after fade-out */
+.hidden {
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Modal */
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1100; /* Ensure modal is above overlay */
+    padding: 20px;
+    box-sizing: border-box;
+    animation: slideDownFadeIn 0.3s ease-out;
+}
+
+/* Modal Header */
+.modalHeader {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 16px;
+    color: #333;
+}
+
+/* Modal Body */
+.modalBody {
+    font-size: 1rem;
+    margin-bottom: 24px;
+    color: #333;
+}
+
+/* Modal Footer */
+.modalFooter {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+/* Button styles */
+.button {
+    padding: 10px 16px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Confirm button */
+.buttonConfirm {
+    background-color: #4caf50;
+    color: white;
+}
+
+/* Cancel button */
+.buttonCancel {
+    background-color: #f44336;
+    color: white;
+}
+
+/* Overlay */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1040; /* Below modal but above content */
+    transition: opacity 0.3s ease-out;
+}
+
+/* Fading out the overlay when closing */
+.overlayClosing {
+    opacity: 0;
+}
+
+/* Slide down and fade-in */
+@keyframes slideDownFadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -60%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+/* Slide up and fade-out */
+@keyframes slideUpFadeOut {
+    from {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+    to {
+        opacity: 0;
+        transform: translate(-50%, -60%);
+    }
+}
+
+/* Closing animation applied on modal close */
+.modalClosing {
+    animation: slideUpFadeOut 0.3s ease-out forwards;
+}
+
+/* Overlay fade-out */
+@keyframes fadeOut {
+    from {
+        opacity: 0.5;
+    }
+    to {
+        opacity: 0;
+    }
+}

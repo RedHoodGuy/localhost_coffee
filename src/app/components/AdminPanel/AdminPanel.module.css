@@ -1,0 +1,43 @@
+/* Add these styles to a global CSS or your component CSS module */
+.button {
+    padding: 10px 20px;
+    margin-right: 10px;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-size: 0% 100%;
+    background-image: linear-gradient(pink, pink);
+    background-repeat: no-repeat;
+    transition: all 0.3s linear;
+}
+
+.button:hover {
+    background-color: pink;
+    color: black;
+}
+
+
+/* Style for the tab container */
+.tab-container {
+    margin: auto;
+    display: flex;
+    width: 95%;
+    justify-content: center;
+    /* Center the buttons horizontally */
+    margin-bottom: 20px;
+    /* Add some space below the tabs */
+}
+
+.admin-container {
+    width: 95%;
+    min-height: 100%;
+    margin: auto;
+    height: fit-content;
+    justify-content: center;
+}
+
+.button:hover {
+    background-size: 100% 100%;
+    transition: all 0.3s cubic-bezier(0.000, 0.000, 0.230, 1);
+    color: black;
+}

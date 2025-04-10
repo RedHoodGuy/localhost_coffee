@@ -23,9 +23,8 @@ const Collections: React.FC = () => {
             }}
             key={index}
             data-index={index}
-            className={`${animationClasses['fade-in']} ${
-              visibleIndexes.includes(index) ? animationClasses['fade-in-visible'] : ''
-            }`}
+            className={`${animationClasses['fade-in']} ${visibleIndexes.includes(index) ? animationClasses['fade-in-visible'] : ''
+              }`}
             style={{
               '--delay': `${index * 0.1}s`, // Delay increases by 0.2s per item
             } as React.CSSProperties} // Cast as CSSProperties to avoid TS error

@@ -2,11 +2,11 @@
 import classes from './Paragraph.module.css';
 
 const Paragraph = ({ text }) => {
-    return(
+    return (
         <>
-        <p className={classes.spacing}>
+            <p className={classes.spacing}>
                 {text}
-        </p>
+            </p>
         </>
     )
 }
