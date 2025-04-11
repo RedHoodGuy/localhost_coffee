@@ -17,7 +17,7 @@
 
 .filter-input {
   padding: 8px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--seashell);
   border-radius: 4px;
   outline: none;
 }
@@ -29,20 +29,40 @@
   gap: 20px;
   width: 100%;
   max-width: 1200px;
+  transition: background-color 0.3s ease-in-out;
 }
 
 /* Product Card Wrapper */
 .product-grid>* {
-  background-color: #fff;
+  background-color: var(--seashell);
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+  color: var(--evergreen);
+  will-change: background-color, transform;
 }
 
 .product-grid>*:hover {
   transform: translateY(-5px);
 }
 
+.product-grid>*::before {
+  content: '';
+  position: absolute;
+  border-radius: 8px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--softamber);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  z-index: -1;
+}
+
+.product-grid>*:hover::before {
+  opacity: 1;
+}
 /* Wrapper for the input to position the label */
 .input-wrapper {
   position: relative;
@@ -60,7 +80,6 @@
   /* Move label above the input */
   left: 10px;
   font-size: 12px;
-  color: white;
   padding: 0 5px;
   transition: all 0.2s ease;
   pointer-events: none;
