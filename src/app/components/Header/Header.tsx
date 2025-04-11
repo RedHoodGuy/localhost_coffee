@@ -6,26 +6,30 @@ import Navbar from '../Navbar/Navbar';
 import classes from './Header.module.css';
 
 const Header = () => {
-    const [isScrollingUp, setIsScrollingUp] = useState(true);
-    const [hasScrolledPastHeader, setHasScrolledPastHeader] = useState(false);
+    const [isSticky, setIsSticky] = useState(false); // Controls if the header is sticky
+    const [isVisible, setIsVisible] = useState(true); // Controls header visibility
+    const [isReturning, setIsReturning] = useState(false); // Controls smooth return to natural position
     let lastScrollY = 0;
 
     useEffect(() => {
         const handleScroll = () => {
             const currentScrollY = window.scrollY;
 
-            // Check if the user has scrolled past the header height (e.g., 100px)
             if (currentScrollY > 204) {
-                setHasScrolledPastHeader(true);
-            } else {
-                setHasScrolledPastHeader(false);
-            }
-
-            // Determine scroll direction
-            if (currentScrollY < lastScrollY) {
-                setIsScrollingUp(true); // Scrolling up
-            } else {
-                setIsScrollingUp(false); // Scrolling down
+                // User has scrolled past the header height
+                if (currentScrollY < lastScrollY) {
+                    // Scrolling up
+                    setIsSticky(true); // Make header sticky
+                    setIsVisible(true); // Show header
+                    setIsReturning(false); // Ensure no snapping
+                } else {
+                    // Scrolling down
+                    setIsVisible(false); // Hide header
+                }
+            } else if (currentScrollY === 0) {
+                // User has scrolled all the way to the top
+                setIsSticky(false); // Header is no longer sticky
+                setIsVisible(true); // Ensure header is visible
             }
 
             lastScrollY = currentScrollY;
@@ -35,22 +39,24 @@ const Header = () => {
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
-    }, []);
+    }, [isSticky]);
 
     return (
         <>
             <div
                 className={`${classes.header} ${
-                    hasScrolledPastHeader && !isScrollingUp ? classes.hidden : ''
-                }`}
+                    isSticky ? classes.sticky : isReturning ? classes.returning : ''
+                } ${!isVisible ? classes.hidden : ''}`}
             >
-                <Link href='/'>
-                    <SvgLhcVertLogoWht className={classes.logo} fill="#FFFFFF" stroke="#FFFFFF" width={150} height="auto" />
-                </Link>
+                <div className={classes['logo-container']}>
+                    <Link href='/'>
+                        <SvgLhcVertLogoWht className={classes.logo} width={150} height="auto" />
+                    </Link>
+                </div>
                 <Navbar />
             </div>
             {/* Placeholder to maintain header height */}
-            <div className={classes.headerPlaceholder}></div>
+            <div className={classes.placeholder} style={{ height: isSticky ? '204px' : '0' }}></div>
             <div className={classes.bar}></div>
         </>
     );

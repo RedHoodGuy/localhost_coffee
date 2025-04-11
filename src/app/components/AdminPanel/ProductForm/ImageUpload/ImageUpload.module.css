@@ -1,7 +1,7 @@
 /* imageUpload.module.css */
 
 .drag-drop-area {
-  border: 2px dashed #ccc;
+  border: 2px dashed var(--seashell);
   padding: 20px;
   text-align: center;
   cursor: pointer;
@@ -16,7 +16,7 @@
 
 .drag-drop-area-p {
   font-size: 14px;
-  color: white;
+  color: var(--seashell);
 }
 
 .drag-drop-area img {

@@ -6,7 +6,7 @@
     margin: 0 auto;
     padding: 20px;
     border-radius: 8px;
-    background-color: darkslategray;
+    background-color: var(--duskblue);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -56,7 +56,7 @@
 .product-form .product-input {
     width: 100%;
     padding: 10px;
-    border: 1px solid #ddd;
+    border: 1px solid var(--seashell);
     border-radius: 5px;
     font-size: 16px;
     box-sizing: border-box;
@@ -70,8 +70,8 @@
 /* Submit button styling */
 .product-form .add-btn {
     background-color: black;
-    color: white;
-    border: 1px solid white;
+    color: var(--seashell);
+    border: 1px solid var(--seashell);
     padding: 12px 20px;
     font-size: 16px;
     cursor: pointer;
@@ -81,12 +81,11 @@
 }
 
 .product-form .add-btn:disabled {
-    background-color: darkslategray;
+    background-color: var(--duskblue);
     cursor: not-allowed;
 }
 
 .product-form .add-btn:disabled:hover {
-    background-color: #cccccc;
     cursor: not-allowed;
 }
 
@@ -109,9 +108,9 @@
 
 .add-btn {
     border-radius: 5px;
-    border: 1px solid white;
+    border: 1px solid var(--seashell);
     background-size: 0% 100%;
-    background-image: linear-gradient(pink, pink);
+    background-image: linear-gradient(var(--goldenglow), var(--goldenglow));
     background-repeat: no-repeat;
     transition: all 0.3s linear;
     padding: 5px;

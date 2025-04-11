@@ -33,8 +33,10 @@ body {
   color: var(--seashell);
   font-family: var(--body-font);
   min-height: 100vh;
+  min-width: 100vw;
   display: flex;
   flex-direction: column;
+  width: 100vw;
 }
 
 h1 {
@@ -48,4 +50,11 @@ h2, h3, h4, h5, h6 {
 .content {
   flex: 1;
   margin-bottom: 20px;
+}
+
+html {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: var(--seashell) var(--duskblue);
 }

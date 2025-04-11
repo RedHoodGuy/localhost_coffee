@@ -17,7 +17,7 @@
 
 .filter-input {
   padding: 8px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--seashell);
   border-radius: 4px;
   outline: none;
 }
