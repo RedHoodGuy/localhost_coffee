@@ -28,7 +28,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     width: 400px;
-    background-color: #fff;
+    background-color: var(--seashell);
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     z-index: 1100; /* Ensure modal is above overlay */
@@ -42,14 +42,14 @@
     font-size: 1.5rem;
     font-weight: bold;
     margin-bottom: 16px;
-    color: #333;
+    color: var(--evergreen);
 }
 
 /* Modal Body */
 .modalBody {
     font-size: 1rem;
     margin-bottom: 24px;
-    color: #333;
+    color: var(--evergreen);
 }
 
 /* Modal Footer */
@@ -71,13 +71,13 @@
 /* Confirm button */
 .buttonConfirm {
     background-color: #4caf50;
-    color: white;
+    color: var(--seashell);
 }
 
 /* Cancel button */
 .buttonCancel {
     background-color: #f44336;
-    color: white;
+    color: var(--seashell);
 }
 
 /* Overlay */

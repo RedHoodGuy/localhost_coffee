@@ -3,16 +3,16 @@
     padding: 10px 20px;
     margin-right: 10px;
     cursor: pointer;
-    border: 1px solid #ddd;
+    border: 1px solid var(--seashell);
     border-radius: 5px;
     background-size: 0% 100%;
-    background-image: linear-gradient(pink, pink);
+    background-image: linear-gradient(var(--softamber), var(--softamber));
     background-repeat: no-repeat;
     transition: all 0.3s linear;
 }
 
 .button:hover {
-    background-color: pink;
+    background-color: var(--softamber);
     color: black;
 }
 

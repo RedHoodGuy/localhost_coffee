@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 
 import { useState, useEffect } from "react";
@@ -12,6 +14,8 @@ const ProductEdit = () => {
     const [deleteSuccess, setDeleteSuccess] = useState(false);
     const [modalOpen, setModalOpen] = useState(false);
     const [confirmDelete, setConfirmDelete] = useState(false);
+    const [editModalOpen, setEditModalOpen] = useState(false);
+    const [confirmUpdate, setConfirmUpdate] = useState(false);
     const [deletionId, setDeletionId] = useState("");
 
     // Fetch products from the API (assuming an API endpoint to fetch products)
@@ -33,7 +37,11 @@ const ProductEdit = () => {
             handleDelete(deletionId);
             setConfirmDelete(false); // Reset the state after the deletion
         }
-    }, [confirmDelete, deletionId]); // Trigger when confirmDelete or deletionId changes
+        if (confirmUpdate && editingProduct) {
+            handleEditSubmit(); // Trigger the edit submit function
+            setConfirmUpdate(false); // Reset the state after the update
+        }
+    }, [confirmDelete, deletionId, confirmUpdate]); // Trigger when confirmDelete or deletionId changes
 
     const handleDelete = async (id: string) => {
         if (confirmDelete && id) {
@@ -63,9 +71,8 @@ const ProductEdit = () => {
     };
 
     // Handle form submission for editing a product
-    const handleEditSubmit = async (e: React.FormEvent) => {
-        e.preventDefault();
-
+    const handleEditSubmit = async () => {
+        setLoading(true);
         // Ensure correct data types for the submission
         const updatedProductData = {
             ...editingProduct,
@@ -90,6 +97,7 @@ const ProductEdit = () => {
                 );
                 setEditingProduct(null); // Close the edit form
                 setUpdateSuccess(true);
+                setLoading(false);
             } catch (error) {
                 console.error("Error updating product:", error);
             }
@@ -109,6 +117,9 @@ const ProductEdit = () => {
         setModalOpen(true);
         setDeletionId(id);
     }
+    const openEditConfirmationModal = () => {
+        setEditModalOpen(true);
+    }
     const onModalConfirm = () => {
         setConfirmDelete(true);
         setModalOpen(false);
@@ -117,10 +128,18 @@ const ProductEdit = () => {
     const onModalClose = () => {
         setModalOpen(false);
     };
+    const onEditModalConfirm = () => {
+        setConfirmUpdate(true);
+        setEditModalOpen(false);
+    };
+    const onEditModalClose = () => {
+        setModalOpen(false);
+    };
 
     return (
         <>
             {modalOpen && (<ConfirmationModal isOpen={modalOpen} onClose={onModalClose} onConfirm={onModalConfirm} message="Are you sure you want to delete this product?" />)}
+            {editModalOpen && (<ConfirmationModal isOpen={editModalOpen} onClose={onEditModalClose} onConfirm={onEditModalConfirm} message="Are you sure you want to update this product?" />)}
             <div className={styles.container}>
                 <div className={styles.productList}>
                     <h2>Manage Products</h2>
@@ -160,7 +179,7 @@ const ProductEdit = () => {
                         }`}
                 >
                     <h3>Edit Product</h3>
-                    <form onSubmit={handleEditSubmit} className={styles.editForm}>
+                    <form onSubmit={() => setEditModalOpen(true)} className={styles.editForm}>
                         <div className={styles.formGroup}>
                             <label>Product Name</label>
                             <input
@@ -203,9 +222,10 @@ const ProductEdit = () => {
                         </div>
                         <div className={styles.formActions}>
                             <button
-                                type="submit"
+                                type="button"
                                 disabled={loading}
                                 className={styles.updateButton}
+                                onClick={(() => openEditConfirmationModal())}
                             >
                                 {loading ? "Updating..." : "Update Product"}
                             </button>

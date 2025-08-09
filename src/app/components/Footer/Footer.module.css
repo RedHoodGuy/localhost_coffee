@@ -1,5 +1,7 @@
 .sticky {
     bottom: 0;
     margin-top: auto;
+    text-align: center;
     z-index: 999;
+    background-color: var(--duskblue);
 }

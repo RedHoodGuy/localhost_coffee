@@ -32,6 +32,7 @@ const ProductCard = forwardRef<HTMLDivElement, ProductCardProps>(
           alt={product.name}
           width={300}
           height={300}
+          className={classes['product-image']}
         />
         <h3>{product.name}</h3>
         <p>{product.description}</p>

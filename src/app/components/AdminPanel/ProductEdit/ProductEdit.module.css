@@ -21,7 +21,7 @@
   width: 35%;
   /* Fixed width for the product list */
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--seashell);
   border-radius: 8px;
   transition: transform 0.3s ease;
   /* Smooth transition for the form */
@@ -43,7 +43,7 @@
   padding-right: 10px;
   padding-bottom: 25px;
   padding-top: 25px;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid var(--seashell);
 }
 
 .productActions {
@@ -61,12 +61,12 @@
 
 .editButton {
   background-color: #4CAF50;
-  color: white;
+  color: var(--seashell);
 }
 
 .deleteButton {
   background-color: #f44336;
-  color: white;
+  color: var(--seashell);
 }
 
 .editButton:hover {
@@ -86,7 +86,7 @@
   width: 35%;
   /* Fixed width for the form */
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--seashell);
   border-radius: 8px;
   transition: right 0.3s ease, width 0.3s ease;
   /* Smooth transition for sliding in */
@@ -125,7 +125,7 @@
 
 .formGroup input {
   padding: 8px;
-  border: 1px solid #ddd;
+  border: 1px solid var(--seashell);
   border-radius: 5px;
   width: 100%;
 }
@@ -138,7 +138,7 @@
 .updateButton {
   padding: 10px 20px;
   background-color: #4CAF50;
-  color: white;
+  color: var(--seashell);
   border: none;
   border-radius: 5px;
   cursor: pointer;

@@ -3,3 +3,58 @@
     object-fit: cover;
     height: auto;
 }
+
+
+.header {
+    position: relative; /* Default position */
+    top: 0;
+    width: 100vw;
+    background-color: var(--duskblue); /* Your header background color */
+    transition: transform 0.3s ease-in-out, position 0.3s ease-in-out;
+    z-index: 1000;
+}
+
+.sticky {
+    position: fixed; /* Make the header sticky when scrolling up past its height */
+    top: 0;
+    width: 100vw;
+}
+
+.hidden {
+    transform: translateY(-100%); /* Hide the header when scrolling down */
+}
+
+.returning {
+    transition: transform 0.6s ease-in-out; /* Smooth return to natural position */
+}
+
+.logo-container {
+    width: 150px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.headerPlaceholder {
+    height: 204px; /* Match the height of the header */
+    width: 100%;
+}
+.logo {
+    margin-left: auto;
+    margin-right: auto;
+    fill: var(--seashell);
+    stroke: var(--seashell);
+    transition: all 0.3s ease-in-out;
+}
+
+.logo:hover {
+    fill: var(--goldenglow);
+    text-decoration: none;
+    stroke: var(--goldenglow)
+}
+
+.bar {
+    background-color: var(--goldenglow);
+    height: 10px;
+    width: 100%;
+    margin-bottom: 20px;
+}
